@@ -1,0 +1,28 @@
+--- origsrc/crypt/Makefile	2013-03-14 04:19:33.000000000 -0500
++++ src/crypt/Makefile	2013-11-20 18:41:40.400959100 -0600
+@@ -12,7 +12,7 @@ DLLVER=0
+ EXE=.exe
+ 
+ STATICLIB=libcrypt.a
+-SHAREDLIB=cygcrypt-$(DLLVER).dll
++SHAREDLIB=libcrypt-$(DLLVER).dll
+ IMPORTLIB=libcrypt.dll.a
+ 
+ APPS=crypt$(EXE)
+--- origsrc/crypt/encrypt.h	2012-05-07 06:00:13.000000000 -0500
++++ src/crypt/encrypt.h	2013-11-20 18:40:26.416727500 -0600
+@@ -24,11 +24,9 @@ extern "C"
+ {
+ #endif
+ 
+-#include <_ansi.h>
+-
+-void _EXFUN(encrypt, (char *block, int edflag));
+-void _EXFUN(setkey, (char *key));
+-char * _EXFUN(crypt, (const char *key, const char *salt));
++void encrypt (char *block, int edflag);
++void setkey (char *key);
++char * crypt (const char *key, const char *salt);
+ 
+ #ifdef __cplusplus
+ }
